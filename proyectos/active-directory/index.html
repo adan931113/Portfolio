@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Proyecto de infraestructura de Active Directory con Windows Server 2022.">
+    <title>Active Directory · Mi Portafolio</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <nav class="nav container" aria-label="Navegación principal">
+        <a class="brand" href="../../" aria-label="Ir al inicio">
+          <span class="brand-mark">SYS</span>
+          <span>Mi Portafolio</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="../../#sobre-mi">Sobre mí</a></li>
+          <li><a href="../../#proyectos">Proyectos</a></li>
+          <li><a href="../../#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="contenido">
+      <section class="project-hero container">
+        <nav class="breadcrumb" aria-label="Ruta de navegación">
+          <a href="../../">Inicio</a><span>/</span><a href="../../#proyectos">Proyectos</a><span>/</span><span aria-current="page">Active Directory</span>
+        </nav>
+        <div class="project-title-row">
+          <div>
+            <p class="section-kicker">Proyecto 01 / Sistemas Windows</p>
+            <h1>Infraestructura de Active Directory</h1>
+            <p class="project-lead">Laboratorio empresarial ficticio para centralizar identidades, equipos, políticas y recursos compartidos con Windows Server 2022.</p>
+          </div>
+          <span class="status-badge">Plantilla del laboratorio</span>
+        </div>
+        <dl class="summary-strip">
+          <div class="summary-item"><dt>Dominio</dt><dd>smr.local</dd></div>
+          <div class="summary-item"><dt>Servidor</dt><dd>SRV-DC01</dd></div>
+          <div class="summary-item"><dt>Clientes</dt><dd>Windows 11 Pro</dd></div>
+          <div class="summary-item"><dt>Entorno</dt><dd>VMware Workstation</dd></div>
+        </dl>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Arquitectura</p>
+              <h2>Entorno del laboratorio</h2>
+            </div>
+            <p>Servidor y clientes comparten una red virtual NAT. El controlador de dominio ofrece AD DS y DNS, y los clientes usan su IP privada como DNS preferido.</p>
+          </div>
+          <div class="architecture" role="img" aria-label="Internet conectado por VMware NAT a una red virtual compartida por el servidor SRV-DC01 con Active Directory y DNS y por cuatro clientes de los departamentos Administración, Dirección, Informática y RRHH.">
+            <div class="architecture-node"><strong>Internet</strong><small>Acceso externo</small></div>
+            <div class="architecture-line" aria-hidden="true"></div>
+            <div class="architecture-node"><strong>VMware NAT</strong><small>Red virtual</small></div>
+            <div class="architecture-line" aria-hidden="true"></div>
+            <div class="architecture-node"><strong>Red virtual del laboratorio</strong><small>Segmento compartido</small></div>
+            <div class="architecture-line" aria-hidden="true"></div>
+            <div class="architecture-clients">
+              <div class="architecture-node primary"><strong>SRV-DC01</strong><small>AD DS + DNS</small></div>
+              <div class="architecture-node"><strong>PC-ADM</strong><small>Administración</small></div>
+              <div class="architecture-node"><strong>PC-DIR</strong><small>Dirección</small></div>
+              <div class="architecture-node"><strong>PC-INF</strong><small>Informática</small></div>
+              <div class="architecture-node"><strong>PC-RRHH</strong><small>RRHH</small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container details-grid">
+          <article class="detail-card">
+            <p class="section-kicker">Objetivos</p>
+            <h2>Qué demuestra este proyecto</h2>
+            <ul class="check-list">
+              <li>Crear y administrar un dominio corporativo.</li>
+              <li>Organizar usuarios, grupos y equipos mediante OUs.</li>
+              <li>Integrar clientes Windows 11 en el dominio.</li>
+              <li>Aplicar GPO por departamento.</li>
+              <li>Gestionar carpetas compartidas y permisos NTFS.</li>
+            </ul>
+          </article>
+          <article class="detail-card">
+            <p class="section-kicker">Tecnologías</p>
+            <h2>Componentes del laboratorio</h2>
+            <ul class="tag-list" aria-label="Tecnologías utilizadas">
+              <li>Windows Server 2022</li>
+              <li>Windows 11 Pro</li>
+              <li>AD DS</li>
+              <li>DNS</li>
+              <li>Group Policy</li>
+              <li>NTFS</li>
+              <li>Carpetas compartidas</li>
+              <li>VMware Workstation 17</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container details-grid">
+          <article class="detail-card">
+            <p class="section-kicker">Documentación</p>
+            <h2>Guion técnico</h2>
+            <ul class="document-list">
+              <li>Diseño de red, nombre del dominio y direccionamiento.</li>
+              <li>Instalación de AD DS y configuración de DNS.</li>
+              <li>Diseño de OUs, usuarios y grupos de seguridad.</li>
+              <li>Unión de clientes y aplicación de GPO.</li>
+              <li>Recursos compartidos, permisos y pruebas de acceso.</li>
+            </ul>
+            <p>La versión completa en Markdown se mantiene junto al laboratorio en <code>README.md</code>, lista para consultarse desde el repositorio de GitHub cuando lo publiques.</p>
+          </article>
+          <article class="detail-card">
+            <p class="section-kicker">Incidencia documentada</p>
+            <h2>Relación de confianza rota</h2>
+            <div class="callout">
+              <p><strong>Síntoma:</strong> error de relación de confianza entre un cliente y el dominio.</p>
+              <p><strong>Comprobación:</strong> revisar DNS, hora del sistema y la cuenta de equipo en Active Directory antes de aplicar cambios.</p>
+              <p><strong>Resolución:</strong> reparar el canal seguro del cliente o sacarlo del dominio y unirlo de nuevo. Si restableces la cuenta desde Active Directory, tendrás que volver a unir el equipo.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Evidencias</p>
+              <h2>Capturas que añadir</h2>
+            </div>
+            <p>Guárdalas numeradas en <code>imagenes/</code>, elimina datos sensibles y añade una breve explicación bajo cada una.</p>
+          </div>
+          <div class="capture-grid">
+            <div class="capture-placeholder"><div><span>01</span>Active Directory Users and Computers</div></div>
+            <div class="capture-placeholder"><div><span>02</span>DNS Manager y zona del dominio</div></div>
+            <div class="capture-placeholder"><div><span>03</span>GPO aplicada a una OU</div></div>
+            <div class="capture-placeholder"><div><span>04</span>Cliente unido a smr.local</div></div>
+            <div class="capture-placeholder"><div><span>05</span>Carpeta compartida y permisos NTFS</div></div>
+            <div class="capture-placeholder"><div><span>06</span>Inicio de sesión con usuario del dominio</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container contact-panel">
+          <div>
+            <p class="section-kicker">Siguiente mejora</p>
+            <h2>Haz crecer el laboratorio.</h2>
+            <p>Ideas para una segunda iteración: DHCP, perfiles móviles, carpetas personales, FSRM, copias de seguridad, WSUS o un segundo controlador de dominio.</p>
+          </div>
+          <a class="button button-primary" href="../../#proyectos">Volver a proyectos</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© 2026 Mi Portafolio de Sistemas y Redes.</span>
+        <a class="back-link" href="../../">← Volver al inicio</a>
+      </div>
+    </footer>
+  </body>
+</html>
