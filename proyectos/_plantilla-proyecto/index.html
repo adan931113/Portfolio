@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- TODO: describe el proyecto en 1 frase -->
+    <meta name="description" content="[Nombre del proyecto]: [descripción corta del laboratorio/proyecto].">
+    <!-- TODO: título de pestaña -->
+    <title>[Nombre del proyecto] · Mi Portafolio</title>
+    <!-- No toques esta ruta: siempre 2 niveles hasta assets/ -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <!-- Cabecera: idéntica en todas las páginas, no la edites -->
+    <header class="site-header">
+      <nav class="nav container" aria-label="Navegación principal">
+        <a class="brand" href="../../index.html" aria-label="Ir al inicio">
+          <span class="brand-mark">SYS</span>
+          <span>Mi Portafolio</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="../../index.html">Inicio</a></li>
+          <li><a href="../../index.html#sobre-mi">Sobre mí</a></li>
+          <li><a href="../../index.html#proyectos">Proyectos</a></li>
+          <li><a href="../../index.html#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="contenido">
+      <section class="project-hero container">
+        <p class="breadcrumb">
+          <a href="../../index.html">Inicio</a><span>/</span>
+          <a href="../../index.html#proyectos">Proyectos</a><span>/</span>
+          <!-- TODO: nombre corto del proyecto -->
+          [Nombre del proyecto]
+        </p>
+
+        <div class="project-title-row">
+          <div>
+            <!-- TODO: numeración y categoría, p.ej. "Proyecto 02 / Aplicaciones Web" -->
+            <p class="section-kicker">Proyecto 0X / [Categoría]</p>
+            <!-- TODO: nombre del proyecto -->
+            <h1>[Nombre del proyecto]</h1>
+            <!-- TODO: resumen de 1-2 frases -->
+            <p class="project-lead">[Qué es el proyecto y qué problema resuelve, en 1-2 frases.]</p>
+          </div>
+          <!-- TODO: estado real del proyecto -->
+          <span class="status-badge">En progreso</span>
+        </div>
+
+        <!-- Ficha rápida: exactamente 4 datos clave del proyecto -->
+        <dl class="summary-strip">
+          <div class="summary-item">
+            <dt>[Etiqueta 1]</dt>
+            <dd>[Valor 1]</dd>
+          </div>
+          <div class="summary-item">
+            <dt>[Etiqueta 2]</dt>
+            <dd>[Valor 2]</dd>
+          </div>
+          <div class="summary-item">
+            <dt>[Etiqueta 3]</dt>
+            <dd>[Valor 3]</dd>
+          </div>
+          <div class="summary-item">
+            <dt>[Etiqueta 4]</dt>
+            <dd>[Valor 4]</dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- Arquitectura -->
+      <section class="section section-alt">
+        <div class="container">
+          <p class="section-kicker">Arquitectura</p>
+          <h2>[Cómo funciona / entorno del proyecto]</h2>
+          <p style="max-width:42rem;color:var(--muted);margin-bottom:2rem;">[Explica en 1-2 frases el flujo de datos o la infraestructura.]</p>
+
+          <div class="architecture">
+            <!-- Repite architecture-node por cada capa; usa "primary" en el nodo central/clave -->
+            <div class="architecture-node"><strong>[Origen]</strong><small>[detalle]</small></div>
+            <div class="architecture-line"></div>
+            <div class="architecture-node primary"><strong>[Componente principal]</strong><small>[detalle]</small></div>
+            <div class="architecture-line"></div>
+            <div class="architecture-clients">
+              <div class="architecture-node"><strong>[Nodo]</strong><small>[detalle]</small></div>
+              <div class="architecture-node"><strong>[Nodo]</strong><small>[detalle]</small></div>
+              <div class="architecture-node"><strong>[Nodo]</strong><small>[detalle]</small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Objetivos -->
+      <section class="section">
+        <div class="container">
+          <p class="section-kicker">Objetivos</p>
+          <h2>Qué demuestra este proyecto</h2>
+          <article class="detail-card">
+            <ul class="check-list">
+              <li>[Objetivo/competencia demostrada 1]</li>
+              <li>[Objetivo/competencia demostrada 2]</li>
+              <li>[Objetivo/competencia demostrada 3]</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Tecnologías -->
+      <section class="section section-alt">
+        <div class="container">
+          <p class="section-kicker">Tecnologías</p>
+          <h2>Componentes del proyecto</h2>
+          <article class="detail-card">
+            <ul class="tag-list">
+              <li>[Tecnología 1]</li>
+              <li>[Tecnología 2]</li>
+              <li>[Tecnología 3]</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Documentación -->
+      <section class="section">
+        <div class="container">
+          <p class="section-kicker">Documentación</p>
+          <h2>Guion técnico</h2>
+          <article class="detail-card">
+            <ul class="document-list">
+              <li>[Paso/decisión técnica 1]</li>
+              <li>[Paso/decisión técnica 2]</li>
+              <li>[Paso/decisión técnica 3]</li>
+            </ul>
+            <p style="margin-top:1rem;">La versión completa en Markdown se mantiene junto al proyecto en <code>README.md</code>.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Incidencias / problemas encontrados -->
+      <section class="section section-alt">
+        <div class="container">
+          <p class="section-kicker">Incidencia documentada</p>
+          <h2>Problemas encontrados y solución</h2>
+          <div class="callout">
+            <p><strong>Síntoma:</strong> [qué fallaba].</p>
+            <p><strong>Comprobación:</strong> [qué revisaste para diagnosticarlo].</p>
+            <p><strong>Resolución:</strong> [cómo lo solucionaste].</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Evidencias -->
+      <section class="section">
+        <div class="container">
+          <p class="section-kicker">Evidencias</p>
+          <h2>Capturas que añadir</h2>
+          <p style="max-width:42rem;color:var(--muted);margin-bottom:1.5rem;">
+            Guárdalas numeradas en <code>imagenes/</code>, elimina datos sensibles y añade una breve explicación bajo cada una.
+          </p>
+          <div class="capture-grid">
+            <div class="capture-placeholder"><span>01</span>[Descripción de la captura]</div>
+            <div class="capture-placeholder"><span>02</span>[Descripción de la captura]</div>
+            <div class="capture-placeholder"><span>03</span>[Descripción de la captura]</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Siguiente mejora -->
+      <section class="section section-alt">
+        <div class="container">
+          <p class="section-kicker">Siguiente mejora</p>
+          <h2>Haz crecer el proyecto.</h2>
+          <p style="max-width:42rem;color:var(--muted);">[Ideas para una segunda iteración del proyecto.]</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <a class="back-link" href="../../index.html#proyectos">← Volver a proyectos</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© 2026 Mi Portafolio de Sistemas y Redes.</span>
+        <a class="back-link" href="../../index.html">← Volver al inicio</a>
+      </div>
+    </footer>
+  </body>
+</html>

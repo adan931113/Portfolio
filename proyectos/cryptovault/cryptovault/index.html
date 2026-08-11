@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="CryptoVault: dashboard de monitoreo de posiciones DeFi en tiempo real (Uniswap V3, Orca Whirlpool, Raydium CLMM), leído directamente de la blockchain.">
+    <title>CryptoVault · Mi Portafolio</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <nav class="nav container" aria-label="Navegación principal">
+        <a class="brand" href="../../index.html" aria-label="Ir al inicio">
+          <span class="brand-mark">SYS</span>
+          <span>Mi Portafolio</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="../../index.html">Inicio</a></li>
+          <li><a href="../../index.html#sobre-mi">Sobre mí</a></li>
+          <li><a href="../../index.html#proyectos">Proyectos</a></li>
+          <li><a href="../../index.html#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="contenido">
+      <section class="project-hero container">
+        <p class="breadcrumb">
+          <a href="../../index.html">Inicio</a><span>/</span>
+          <a href="../../index.html#proyectos">Proyectos</a><span>/</span>
+          CryptoVault
+        </p>
+
+        <div class="project-title-row">
+          <div>
+            <p class="section-kicker">Proyecto 02 / Desarrollo Web &amp; Blockchain</p>
+            <h1>CryptoVault</h1>
+            <p class="project-lead">
+              Dashboard de monitoreo de posiciones DeFi en tiempo real. Añades una wallet de Ethereum o Solana
+              y lee directamente de la blockchain sus posiciones de liquidez concentrada, balances y fees pendientes — sin backend propio.
+            </p>
+          </div>
+          <span class="status-badge">MVP funcional</span>
+        </div>
+
+        <dl class="summary-strip">
+          <div class="summary-item">
+            <dt>Tipo</dt>
+            <dd>Dashboard DeFi</dd>
+          </div>
+          <div class="summary-item">
+            <dt>Redes</dt>
+            <dd>Ethereum + Solana</dd>
+          </div>
+          <div class="summary-item">
+            <dt>Protocolos leídos</dt>
+            <dd>Uniswap V3, Orca, Raydium</dd>
+          </div>
+          <div class="summary-item">
+            <dt>Stack</dt>
+            <dd>HTML/CSS/JS puro</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <p class="section-kicker">Arquitectura</p>
+          <h2>Lectura on-chain sin backend</h2>
+          <p style="max-width:42rem;color:var(--muted);margin-bottom:2rem;">
+            Todo corre en el navegador del usuario. No hay servidor propio: el HTML habla directo con nodos RPC públicos
+            y con Helius para las posiciones de Solana.
+          </p>
+
+          <div class="architecture">
+            <div class="architecture-node"><strong>Wallet del usuario</strong><small>Dirección pública (0x… / Solana)</small></div>
+            <div class="architecture-line"></div>
+            <div class="architecture-node primary"><strong>CryptoVault (navegador)</strong><small>JSON-RPC + decodificación ABI/Borsh a mano</small></div>
+            <div class="architecture-line"></div>
+            <div class="architecture-clients">
+              <div class="architecture-node"><strong>RPC Ethereum</strong><small>Uniswap V3 NFPM</small></div>
+              <div class="architecture-node"><strong>Helius RPC</strong><small>Orca / Raydium</small></div>
+              <div class="architecture-node"><strong>CoinGecko</strong><small>Precios USD</small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <p class="section-kicker">Objetivos</p>
+          <h2>Qué demuestra este proyecto</h2>
+          <article class="detail-card">
+            <ul class="check-list">
+              <li>Consumir contratos inteligentes y programas on-chain sin depender de SDKs de terceros.</li>
+              <li>Codificar y decodificar manualmente llamadas ABI (Ethereum) y cuentas binarias Borsh (Solana).</li>
+              <li>Diseñar un sistema de control de acceso (propietario + lista de correos autorizados).</li>
+              <li>Detectar y resolver limitaciones reales de entorno (sandboxing, almacenamiento, CORS).</li>
+              <li>Construir una interfaz en tiempo real que sincroniza al conectarse.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <p class="section-kicker">Tecnologías</p>
+          <h2>Componentes del proyecto</h2>
+          <article class="detail-card">
+            <ul class="tag-list">
+              <li>HTML / CSS / JavaScript vanilla</li>
+              <li>JSON-RPC Ethereum</li>
+              <li>JSON-RPC Solana</li>
+              <li>Helius API</li>
+              <li>CoinGecko API</li>
+              <li>Codificación ABI manual</li>
+              <li>Decodificación Borsh manual</li>
+              <li>localStorage / almacenamiento de artifact</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <p class="section-kicker">Documentación</p>
+          <h2>Guion técnico</h2>
+          <article class="detail-card">
+            <ul class="document-list">
+              <li>Lectura de posiciones Uniswap V3 vía el contrato NonfungiblePositionManager (balanceOf, positions) y cálculo de cantidades a partir de liquidez y rango de ticks.</li>
+              <li>Localización de posiciones Orca Whirlpool y Raydium CLMM con <code>getProgramAccounts</code> + filtros <code>memcmp</code>, sin derivar direcciones PDA manualmente.</li>
+              <li>Verificación del formato binario de cada cuenta contra el código fuente público de cada protocolo antes de confiar en los offsets.</li>
+              <li>Sistema de acceso: primer correo introducido reclama la propiedad; el propietario añade o quita correos autorizados.</li>
+              <li>Sincronización automática al conectarse y refresco periódico mientras la sesión está activa.</li>
+            </ul>
+            <p style="margin-top:1rem;">La versión completa en Markdown se mantiene junto al proyecto en <code>README.md</code>.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <p class="section-kicker">Incidencia documentada</p>
+          <h2>Problemas encontrados y solución</h2>
+
+          <div class="callout">
+            <p><strong>Síntoma:</strong> al guardar la lista de accesos aparecía el error <em>"Storage set failed: Internal server error"</em>.</p>
+            <p><strong>Comprobación:</strong> el sistema de almacenamiento usado (<code>window.storage</code>) solo existe dentro del entorno de artifacts de Claude — al publicar el proyecto en GitHub Pages, esa API deja de estar disponible.</p>
+            <p><strong>Resolución:</strong> se añadió una detección automática de entorno: si <code>window.storage</code> no existe, la app usa <code>localStorage</code> del navegador como alternativa, sin que el usuario tenga que hacer nada.</p>
+          </div>
+
+          <div class="callout" style="margin-top:1rem;">
+            <p><strong>Síntoma:</strong> las wallets no cargaban datos, con el error genérico "No se pudo leer esta wallet".</p>
+            <p><strong>Comprobación:</strong> fallaba igual para Ethereum y Solana — señal de que no era un problema de una red concreta, sino del entorno de pruebas: la vista previa de artifacts en Claude.ai bloquea peticiones de red salientes hacia dominios externos por seguridad.</p>
+            <p><strong>Resolución:</strong> se confirmó que la app funciona correctamente una vez desplegada fuera de ese sandbox (GitHub Pages), donde el navegador sí tiene acceso completo a internet.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <p class="section-kicker">Evidencias</p>
+          <h2>Capturas que añadir</h2>
+          <p style="max-width:42rem;color:var(--muted);margin-bottom:1.5rem;">
+            Guárdalas numeradas en <code>imagenes/</code>, elimina direcciones o correos reales de las capturas y añade una breve explicación bajo cada una.
+          </p>
+          <div class="capture-grid">
+            <div class="capture-placeholder"><span>01</span>Dashboard principal con posiciones cargadas</div>
+            <div class="capture-placeholder"><span>02</span>Detalle de una posición Uniswap V3 (rango y fees)</div>
+            <div class="capture-placeholder"><span>03</span>Posición Orca / Raydium en Solana</div>
+            <div class="capture-placeholder"><span>04</span>Panel de "Accesos" del propietario</div>
+            <div class="capture-placeholder"><span>05</span>Pantalla de inicio de sesión / reclamar propiedad</div>
+            <div class="capture-placeholder"><span>06</span>Mapa de flujo wallets → posiciones</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <p class="section-kicker">Siguiente mejora</p>
+          <h2>Haz crecer el proyecto.</h2>
+          <p style="max-width:42rem;color:var(--muted);">
+            Ideas para una segunda iteración: backend real (Firebase) para acceso multi-dispositivo genuino,
+            histórico de valor/APR con un indexador propio, soporte a más DEXs y una vista de analítica agregada por wallet.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <a class="back-link" href="../../index.html#proyectos">← Volver a proyectos</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© 2026 Mi Portafolio de Sistemas y Redes.</span>
+        <a class="back-link" href="../../index.html">← Volver al inicio</a>
+      </div>
+    </footer>
+  </body>
+</html>

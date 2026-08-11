@@ -1,0 +1,1 @@
+Guarda aquí tus capturas numeradas (01-captura.png, 02-captura.png, ...) referenciadas en index.html y README.md. Elimina datos sensibles (direcciones reales, correos, keys) antes de subir.
